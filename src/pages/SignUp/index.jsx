@@ -13,19 +13,19 @@ export function SignUp(){
     <Container>
       <div>
         <img src={imageLogo} alt="Logo food explorer" />
-        <h1 className="rb-bgest-bold">food explorer</h1>
+        <h1>food explorer</h1>
       </div>
-      <h2 className="rb-sm-reg">Seu nome</h2>
+      <label>Seu nome</label>
       <Input type="text" placeholder="Exemplo: Maria da Silva"/>
     
-      <h2 className="rb-sm-reg">Email</h2>
+      <label>Email</label>
       <Input type="password" placeholder="Exemplo: exemplo@exemplo.com.br"/>
     
-      <h2 className="rb-sm-reg">Senha</h2>
+      <label>Senha</label>
       <Input type="password" placeholder="No mínimo 6 caracteres"/>
 
-      <Button className="pop-100-med" title="Criar conta" />
-      <ButtonText className="pop-100-med" title='Já tenho uma conta' />
+      <Button title="Criar conta" />
+      <ButtonText title='Já tenho uma conta' />
     
     </Container>
   )

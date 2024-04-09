@@ -13,16 +13,16 @@ export function SignIn(){
     <Container>
       <div>
         <img src={imageLogo} alt="Logo food explorer" />
-        <h1 className="rb-bgest-bold">food explorer</h1>
+        <h1>food explorer</h1>
       </div>
-      <h2 className="rb-sm-reg">Email</h2>
+      <label htmlFor="email">Email</label>
       <Input type="email" placeholder="Exemplo: exemplo@exemplo.com.br"/>
     
-      <h2 className="rb-sm-reg">Senha</h2>
+      <label htmlFor="password">Senha</label>
       <Input type="password" placeholder="No mínimo 6 caracteres"/>
     
-      <Button className="pop-100-med" title="Entrar" />
-      <ButtonText className="pop-100-med" title='Criar uma conta' />
+      <Button title="Entrar" />
+      <ButtonText title='Criar uma conta' />
     
     </Container>
   )

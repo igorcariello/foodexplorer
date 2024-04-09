@@ -7,6 +7,12 @@ export const Container = styled.button`
 
   width: 100%;
   height: 3rem;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  font-size: normal;
+  font-weight: 500;
+  line-height: 1.5rem;
   
   background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
   

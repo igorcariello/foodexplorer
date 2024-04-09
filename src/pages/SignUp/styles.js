@@ -16,7 +16,9 @@ export const Container = styled.div`
     }
 
     h1 {
+      font-family: "Roboto", sans-serif;
       font-size: 2.3275rem;
+      font-weight: 700;
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
       
     }
@@ -24,18 +26,25 @@ export const Container = styled.div`
 
   >h2 {
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
-    margin-bottom: 8px;
+    font-family: "Roboto";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
   }
   
   >div:nth-of-type(2){
+    margin-top: 0.5rem;
     margin-bottom: 2rem;
   }
 
   >div:nth-of-type(3){
+    margin-top: 0.5rem;
     margin-bottom: 2rem;
   }
 
   >div:nth-of-type(4){
+    margin-top: 0.5rem;
     margin-bottom: 2rem;
   }
 

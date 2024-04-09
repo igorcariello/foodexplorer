@@ -21,6 +21,11 @@ export const Container = styled.div`
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.LIGHT_500};
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100%;
     }
 
   }

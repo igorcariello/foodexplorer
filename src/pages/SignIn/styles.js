@@ -22,17 +22,19 @@ export const Container = styled.div`
     }
   }
 
-  >h2 {
+  >label {
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
-    margin-bottom: 8px;
+    
   }
   
   >div:nth-of-type(2){
     margin-bottom: 2rem;
+    margin-top: 8px;
   }
 
   >div:nth-of-type(3){
     margin-bottom: 2rem;
+    margin-top: 8px;
   }
 
   >button:nth-last-of-type(1){
