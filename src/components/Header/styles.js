@@ -11,6 +11,10 @@ export const Container = styled.header`
   align-items: center;
   justify-content: space-evenly ;
 
+  >svg {
+      width: 2.375rem;
+      height: 2.375rem;       
+    }
 
   >div:nth-of-type(1){
     display: flex;

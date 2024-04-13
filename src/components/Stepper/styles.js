@@ -20,15 +20,7 @@ export const Container = styled.div`
     color: ${({theme}) => theme.COLORS.LIGHT_100};
   }
 
-  > button {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24px;
 
-    text-align: center;
-  }
 `
 
 

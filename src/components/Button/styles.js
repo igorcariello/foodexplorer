@@ -20,6 +20,8 @@ export const Container = styled.button`
   border: none;
 
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
-
+  > svg {
+    margin-right: 0.34rem;
+  }
 
 `

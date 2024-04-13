@@ -6,7 +6,7 @@ import { PiHeart} from "react-icons/pi";
 
 import ravanelloXS from '../../assets/ravanelloXS.svg'
 
-export function Card(){
+export function Card({...rest}){
   const imageRavanelloXs = ravanelloXS
   return(
     <Container>

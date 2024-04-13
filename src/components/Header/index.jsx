@@ -6,7 +6,7 @@ export function Header(){
 
   return(
     <Container>
-      <PiList size={"1.5rem"} fill="#ffffff"/>
+      <PiList fill="#ffffff"/>
       <div>
         <svg width="1.5rem" height="1.5rem" viewBox="0 0 39 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M19.6574 0L38.4133 10.8287V32.4862L19.6574 43.3149L0.901548 32.4862V10.8287L19.6574 0Z" fill="#065E7C"/>
@@ -14,7 +14,7 @@ export function Header(){
         <h1 className="rb-bg-bold">food explorer</h1>
       </div>
       <div>
-        <PiReceipt size={"1.5rem"} fill="#ffffff"/>
+        <PiReceipt fill="#ffffff"/>
         <div>
           <p className="pop-100-med">0</p>
         </div>       

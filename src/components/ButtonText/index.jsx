@@ -1,10 +1,13 @@
 import { Container } from "../ButtonText/styles";
 
-export function ButtonText({title, className, ...rest}){
+export function ButtonText({title, icon: Icon, ...rest}){
   
   return(
-    <Container className={className} type="button" {...rest}>
-      {title}
+    <Container type="button" {...rest}>
+      <a href="">
+        {Icon && <Icon size={'2rem'}/>}
+        {title}
+      </a>
     </Container>
   )
 }
