@@ -2,8 +2,6 @@ import styled from "styled-components"
 
 export const Container = styled.div`
   width: 100%;
-  height: 3rem;
-
   display: flex;
   align-items: center;
   
@@ -12,12 +10,16 @@ export const Container = styled.div`
 
   border-radius: 0.5rem;
 
-  > input {
+  > textarea {
+    height: 10.75rem;
+    width: 100%;
 
-    padding: 1rem 0.875rem;
+    padding: 0.875rem;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     background-color: transparent;
     border: none;
+
+    resize: none;
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.LIGHT_500};

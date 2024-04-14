@@ -16,10 +16,10 @@ export function SignIn(){
         <h1>food explorer</h1>
       </div>
       <label htmlFor="email">Email</label>
-      <Input type="email" placeholder="Exemplo: exemplo@exemplo.com.br"/>
+      <Input type="email" id='email' placeholder="Exemplo: exemplo@exemplo.com.br"/>
     
       <label htmlFor="password">Senha</label>
-      <Input type="password" placeholder="No mínimo 6 caracteres"/>
+      <Input type="password" id='password' placeholder="No mínimo 6 caracteres"/>
     
       <Button title="Entrar" />
       <ButtonText title='Criar uma conta' />

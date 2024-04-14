@@ -15,14 +15,14 @@ export function SignUp(){
         <img src={imageLogo} alt="Logo food explorer" />
         <h1>food explorer</h1>
       </div>
-      <label>Seu nome</label>
-      <Input type="text" placeholder="Exemplo: Maria da Silva"/>
+      <label htmlFor="name">Seu nome</label>
+      <Input type="text" id='name' placeholder="Exemplo: Maria da Silva"/>
     
-      <label>Email</label>
-      <Input type="password" placeholder="Exemplo: exemplo@exemplo.com.br"/>
+      <label htmlFor="email">Email</label>
+      <Input type="password" id='email' placeholder="Exemplo: exemplo@exemplo.com.br"/>
     
-      <label>Senha</label>
-      <Input type="password" placeholder="No mínimo 6 caracteres"/>
+      <label htmlFor="password">Senha</label>
+      <Input type="password" id='password' placeholder="No mínimo 6 caracteres"/>
 
       <Button title="Criar conta" />
       <ButtonText title='Já tenho uma conta' />
