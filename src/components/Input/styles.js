@@ -14,12 +14,14 @@ export const Container = styled.div`
 
   > input {
 
+    width: 100%;
     padding: 1rem 0.875rem;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     background-color: transparent;
     border: none;
 
     &::placeholder {
+      width: 100%;
       color: ${({ theme }) => theme.COLORS.LIGHT_500};
       font-family: 'Roboto', sans-serif;
       font-size: 1rem;

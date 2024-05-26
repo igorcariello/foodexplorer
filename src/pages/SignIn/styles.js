@@ -30,11 +30,19 @@ export const Container = styled.div`
   >div:nth-of-type(2){
     margin-bottom: 2rem;
     margin-top: 8px;
+
+    input {
+      width: 100%;
+    }
   }
 
   >div:nth-of-type(3){
     margin-bottom: 2rem;
     margin-top: 8px;
+  
+    input {
+      width: 100%;
+    }
   }
 
   >button:nth-last-of-type(1){
