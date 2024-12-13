@@ -35,6 +35,11 @@ export const HeaderMenu = styled.div`
   >svg {
     width: 1.7rem;
     height: 1.7rem;
+    cursor: pointer;
+
+    &:hover{
+      filter: brightness(0.7);
+    }
 
   }
 
@@ -46,6 +51,7 @@ export const HeaderMenu = styled.div`
     font-weight: 400;
     line-height: normal;
   
+    cursor: default;
   }
 `
 
@@ -78,6 +84,12 @@ export const Content = styled.div`
       color: ${({theme}) => theme.COLORS.LIGHT_300};
 
       border-bottom: 1px solid ${({theme}) => theme.COLORS.DARK_1000};
+      
+      &:hover{
+      filter: brightness(0.7);
+      }
+    
+      cursor: pointer;
     }
   }
 

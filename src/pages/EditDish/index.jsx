@@ -10,16 +10,23 @@ import { NewIngredients } from '../../components/NewIngredients'
 
 import { PiCaretLeft, PiUploadSimple } from "react-icons/pi";
 import { TextArea } from "../../components/TextArea"
+import { useNavigate } from "react-router-dom"
 
 
 export function EditDish(){
+  const navigate = useNavigate()
+
+  function handleGoBack(){
+    navigate('/')
+  }
+
 
   return(
     <Container>
       <Header />
       
       <Content >
-        <ButtonText title={'voltar'} icon={ PiCaretLeft }/>
+        <ButtonText onClick={handleGoBack} title={'voltar'} icon={ PiCaretLeft }/>
         
         <h2>Editar prato</h2>
         

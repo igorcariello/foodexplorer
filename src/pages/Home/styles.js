@@ -15,10 +15,19 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-  
 
-  
+`
+export const ContainerMesseger = styled.div`
+  height: 16rem;
+  width: 100%;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > p {
+    color: ${({theme}) => theme.COLORS.TOMATO_300};
+  }
 `
 
 

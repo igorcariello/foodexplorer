@@ -5,15 +5,22 @@ export const Container = styled.header`
   height: 7.125rem;
 
   background-color: ${({theme}) => theme.COLORS.DARK_1000};
-  
 
   display: flex;
   align-items: center;
-  justify-content: space-evenly ;
+  justify-content: space-between;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 
   >svg {
       width: 2.375rem;
-      height: 2.375rem;       
+      height: 2.375rem;
+      
+      cursor: pointer;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
     }
 
   >div:nth-of-type(1){

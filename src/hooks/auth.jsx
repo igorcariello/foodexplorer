@@ -32,7 +32,7 @@ function AuthProvider({ children }) {
 
   }
 
-  function signOut({ email, password }){
+  function signOut(){
 
     localStorage.removeItem("@foodexplorer:user")
     localStorage.removeItem("@foodexplorer:token")
@@ -43,15 +43,20 @@ function AuthProvider({ children }) {
   
   useEffect(() => {
     const token = localStorage.getItem("@foodexplorer:token")
-    const user = localStorage.getItem("@foodexplorer:user")
+    const userStr = localStorage.getItem("@foodexplorer:user")
 
-    if ( token && user) {
+    if ( token && userStr) {
       api.defaults.headers.common['Authorization'] = `Bearer ${ token }`
       
-      setData({
-        token, 
-        user: JSON.parse(user)
-      })
+      try {
+        const user =JSON.parse(userStr)
+        setData({ token, user})
+      } catch (error) {
+        localStorage.removeItem('@foodexplorer:user')
+        localStorage.removeItem('@foodexplorer:token')
+        setData({})
+        console.error("Erro ao analisar dados do usuário no localStorage", error)
+      }
     }
   }, [])
 

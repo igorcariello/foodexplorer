@@ -8,15 +8,21 @@ import imgLogo from '../../assets/logoImg.svg'
 
 import { useAuth } from "../../hooks/auth"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export function SignIn(){
   const imageLogo = imgLogo
+  const navigate = useNavigate()
 
+  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const { signIn } = useAuth()
 
+  function handleGoSignUp(){
+    navigate('/signup')
+  }
   function handleSignIn(){
     signIn({ email, password})
   }
@@ -44,7 +50,7 @@ export function SignIn(){
       />
     
       <Button title="Entrar" onClick= { handleSignIn }/>
-      <ButtonText title='Criar uma conta' />
+      <ButtonText onClick={handleGoSignUp} title='Criar uma conta' />
     
     </Container>
   )

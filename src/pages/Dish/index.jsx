@@ -9,31 +9,72 @@ import { Ingredient } from "../../components/Ingredient";
 
 import { PiCaretLeft, PiReceipt } from "react-icons/pi";
 
-import ravanelloDish from '../../assets/ravanelloXS.svg'
+import { useNavigate, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { api } from "../../services/api"
+
 
 export function Dish(){
-  const ravanello = ravanelloDish
+  const [dish, setDish]=useState(null)
+  const [imageUrl, setImageUrl] = useState(null)
+  const navigate = useNavigate()
+  const { dish_id } = useParams()
 
+  function handleGoBack(){
+    navigate('/')
+  }
+
+  useEffect(() => {
+    async function loadDish(){
+      try { 
+        const response = await api.get(`/dishes/${dish_id}`)
+        setDish(response.data)
+      } catch (error) {
+        console.error('Erro ao carregar prato', error)
+      }
+    }
+
+    loadDish()
+  }, [dish_id])
+
+  useEffect(()=> {
+    if(dish) {
+      setImageUrl(`${api.defaults.baseURL}/files/${dish.image_dish}`)
+    }
+  }, [dish])
+  console.log(imageUrl)
   return(
     <Container>
       <Header />
       <Content >
-        <ButtonText title={'voltar'} icon={ PiCaretLeft }/>
-        <img src={ravanello} alt="" />
-        <h2>Salada Ravanello</h2>
-        <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
-        <div>
-          <Ingredient title={"alface"} />
-          <Ingredient title={"cebola"} />
-          <Ingredient title={"pão naan"} />
-          <Ingredient title={"pepino"} />
-          <Ingredient title={"rabanete"} />
-          <Ingredient title={"tomate"} />
-        </div>
-        <div>
-          <Stepper />
-          <Button title={'pedir ∙ '} icon={PiReceipt} value={' R$ 25,00'}></Button>
-        </div>        
+      {dish ? ( // Renderização condicional usando o operador ternário
+          <>
+            <ButtonText title={'voltar'} icon={PiCaretLeft} onClick={handleGoBack} />
+            <img src={imageUrl} alt={dish.name} /> {/* Adicione o alt para acessibilidade */}
+            <h2>{dish.name}</h2>
+            <p>{dish.description}</p>
+            <div>
+              {dish.ingredients.map((ingredient, index) => (
+                <Ingredient key={index} title={ingredient.name} />
+              ))}
+            </div>
+            <div>
+              <Stepper />
+              <Button 
+                title={'pedir ∙ '} 
+                icon={PiReceipt} 
+                value={`${ 
+                            new Intl.NumberFormat('pt-BR', {
+                              style: 'currency',
+                              currency:'BRL',
+                            }).format(dish.price)
+                }`} 
+              /> 
+            </div>
+          </>
+        ) : (
+          <p>Carregando...</p>
+        )}
       </Content>
       <Footer />
     </Container>

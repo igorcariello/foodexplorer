@@ -31,6 +31,7 @@ export const Container = styled.div`
     margin-bottom: 0.75rem;
 
     flex-shrink: 0;
+    cursor: pointer;
   }
 
   > h3{
@@ -45,6 +46,8 @@ export const Container = styled.div`
     margin-bottom: 0.75rem;
 
     color: ${({theme}) => theme.COLORS.LIGHT_300};
+    cursor: pointer;
+
   }
 
   > span {
@@ -59,6 +62,7 @@ export const Container = styled.div`
 
 
     color: ${({theme}) => theme.COLORS.CAKE_200};
+    cursor: default;
   }
 
   > button {

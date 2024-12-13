@@ -20,6 +20,10 @@ export function SignUp(){
 
   const navigate = useNavigate()
 
+  function handleGoSignIn() {
+    navigate('/')
+  }
+
   function handleSignUp(){
     
     if(!name || !email || !password){
@@ -74,7 +78,7 @@ export function SignUp(){
       />
 
       <Button title="Criar conta" onClick={handleSignUp}/>
-      <ButtonText title='Já tenho uma conta' />
+      <ButtonText onClick={handleGoSignIn} title='Já tenho uma conta' />
     
     </Container>
   )

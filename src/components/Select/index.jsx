@@ -5,8 +5,11 @@ export function Select({...rest}){
   return(
     <Container>
       <select {...rest}>
-        <option defaultValue value="lunch">Refeição</option>
-        <option value="start"> - </option>
+        <option value={''}> Selecione uma opção </option>
+        <option value={"Refeição"}> Refeição </option>
+        <option value= {"Sobremesa"}> Sobremesa </option>
+        <option value={"Prato Principal"}> Prato Principal </option>
+      
       </select>
     </Container>
   )

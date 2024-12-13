@@ -108,7 +108,8 @@ export const Form = styled.form`
 
   #ingredients {
     width: 100%;
-    height: 3rem;
+    min-height: 3rem;
+    flex-wrap: wrap;
     
     border-radius: 0.5rem;
 
@@ -120,6 +121,8 @@ export const Form = styled.form`
     padding: 0.25rem 0.5rem;
     
     flex-shrink: 0;
+
+    
   }
   
   > label {
