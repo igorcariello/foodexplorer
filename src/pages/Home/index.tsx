@@ -19,17 +19,31 @@ import { api } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 import { Spinner } from '../../components/Spinner'
 
+interface IngredientProps{
+  name: string
+}
+
+interface DishProps {
+  name:string
+  price: number
+  image_dish: string
+  category: string
+  id: number
+  description: string
+  ingredients: IngredientProps[]
+}
 
 export function Home(){
-  const [dishes, setDishes] = useState([])
+  const [dishes, setDishes] = useState<DishProps[]>([])
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(true)
 
-  function handleGoDish(dish_id) {
+
+  function handleGoDish(dish_id: number) {
     navigate(`/dish/${dish_id}`)
   }
   
-  function filterDishesByCategory(category) {
+  function filterDishesByCategory(category: string) {
     return dishes.filter(dish => dish.category === category)
   }
   

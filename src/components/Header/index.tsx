@@ -1,13 +1,16 @@
 import { PiReceipt, PiList } from "react-icons/pi";
 
-import { Container } from "../Header/styles";
+import { Container } from "./styles";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 export function Header(){
   const navigate = useNavigate()
+  const { sumQuantity } = useContext(CartContext)
   
   function handleGoToMenu(){
-    navigate('menu')
+    navigate('/menu')
   }
 
   return(
@@ -22,7 +25,7 @@ export function Header(){
       <div>
         <PiReceipt fill="#ffffff"/>
         <div>
-          <p className="pop-100-med">0</p>
+          <p className="pop-100-med">{sumQuantity}</p>
         </div>       
       </div>
     </Container>

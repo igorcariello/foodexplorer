@@ -16,7 +16,6 @@ import { api } from "../../services/api"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../hooks/auth"
 
-
 export function NewDish(){
   const { user} = useAuth()
 
@@ -26,10 +25,10 @@ export function NewDish(){
   const [category, setCategory] = useState('')
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
-  const [image, setImage] = useState(null)
+  const [image, setImage] = useState<File | null>(null)
 
   
-  const [ingredients, setIngredients] = useState([])
+  const [ingredients, setIngredients] = useState<string[]>([])
   const [newIngredient, setNewIngredient] = useState('')
 
   function handleAddIngredient(){
@@ -37,7 +36,7 @@ export function NewDish(){
     setNewIngredient("")
   }
 
-  function handleRemoveIngredient(deleted){
+  function handleRemoveIngredient(deleted: string){
     setIngredients(prevState => prevState.filter( ingredient => ingredient !== deleted))
   }
 
@@ -46,8 +45,8 @@ export function NewDish(){
     console.log(user)
   }
 
-  function handleAddImage(event){
-    const file = event.target.files[0]
+  function handleAddImage(event : React.ChangeEvent<HTMLInputElement>){
+    const file = event.target.files?.[0] || null
 
     setImage(file)
   }
@@ -101,7 +100,7 @@ export function NewDish(){
       })
       alert('Prato cadastrado com sucesso!')
       navigate('/')
-    } catch (error) {
+    } catch (error: any) {
       if (error.response) {
         alert(error.response.data.message)
       }else {
@@ -192,7 +191,6 @@ export function NewDish(){
 
           <label htmlFor="price">Descrição</label>
           <TextArea
-            type='number'
             id='description'
             placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
             onChange = {e => setDescription(e.target.value)}

@@ -18,7 +18,7 @@ export function Menu(){
 
   function handleSignOut(){
     signOut()
-    navigate(-1)
+    navigate('/')
   }
 
   return(

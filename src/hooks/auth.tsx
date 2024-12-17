@@ -1,15 +1,42 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 import { api } from '../services/api'
 
 const AuthContext = createContext({})
 
-function AuthProvider({ children }) {
-  const [data, setData] = useState({})
+interface AuthProviderProps {
+  children: React.ReactNode
+}
+
+interface SignInProps {
+  email: string
+  password: string
+}
+
+interface User {
+  id: number
+  name: string
+  email: string
+  isAdmin: boolean
+}
+
+interface AuthData {
+  user?: User
+  token?: string
+}
+
+interface AuthContextType {
+  signIn: ({email, password}: SignInProps) => Promise<void>
+  signOut: () => void
+  user?:User
+}
+
+function AuthProvider({ children }: AuthProviderProps) {
+  const [data, setData] = useState<AuthData>({})
 
 
 
-  async function signIn({ email, password }){
+  async function signIn({ email, password }: SignInProps){
 
     try {
       const response = await api.post('/sessions', { email, password })
@@ -22,7 +49,7 @@ function AuthProvider({ children }) {
       
       setData({ user , token })
 
-    } catch (error){
+    } catch (error: any){
       if (error.response) {
         alert(error.response.data.message)
       } else {
@@ -73,10 +100,8 @@ function AuthProvider({ children }) {
 }
 
 function useAuth(){
-  const context = useContext(AuthContext)
-
+  const context = useContext(AuthContext) as AuthContextType
   return context
-
 }
 
 

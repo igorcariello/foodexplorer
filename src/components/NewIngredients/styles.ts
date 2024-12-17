@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  isNew?: boolean
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
 
   height: 2rem;
@@ -9,7 +13,7 @@ export const Container = styled.div`
   background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.LIGHT_600};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
-  border: ${({ theme, isNew }) => isNew ? `1px dashed ${ theme.COLORS.LIGHT_500 }` : `none`};
+  border: ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : `none`};
 
   > input {
     background:none;

@@ -88,13 +88,13 @@ export function EditDish(){
           <div>
 
             <Button 
-              type='text'
+              type='button'
               title={'Excluir prato'}
               id='delete-button'
             />
 
             <Button 
-              type='text'
+              type='button'
               title={'Salvar alterações'}
               id='save-button'
             />

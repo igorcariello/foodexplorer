@@ -17,7 +17,11 @@ export const Container = styled.div`
     &:hover{
       filter: brightness(0.6);
     }
-    color: ${({theme}) => theme.COLORS.LIGHT_100};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  }
+
+  > span {
+    cursor: default;
   }
 
 

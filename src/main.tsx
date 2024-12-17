@@ -8,13 +8,16 @@ import { AuthProvider } from './hooks/auth'
 import { ThemeProvider } from "styled-components"
 
 import theme from './styles/theme'
+import { CartProvider } from './contexts/CartContext'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <AuthProvider>
+      <CartProvider>
         <Routes />
+      </CartProvider>
       </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
