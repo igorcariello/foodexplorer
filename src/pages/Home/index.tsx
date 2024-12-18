@@ -68,7 +68,7 @@ export function Home(){
     <Container>
       <Header />
       <Content >
-        {isLoading ? (
+        {isLoading || !dishes ? (
           <Spinner/>
         ) : (
           <>

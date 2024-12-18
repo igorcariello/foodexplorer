@@ -41,6 +41,7 @@ export function Dish(){
   
   const productIsCart = cartItems.find((item) => item.id === dish?.id)
   const initialQuantity = productIsCart?.quantity || 1
+ 
 
   const handleAddItemToCart = () => {
     if (dish){
@@ -48,11 +49,8 @@ export function Dish(){
       const itemExists = cartItems.find((item) => item.id === dish.id)
 
       if(itemExists){
-        const updatedCartItems = cartItems.map((item) => 
-          item.id === dish.id ? {...item, quantity}: item
-        )
-
-        addItemToCart(updatedCartItems)
+        const updatedItem = { ...itemExists, quantity: quantity}
+        addItemToCart(updatedItem)
       }else {
         addItemToCart(itemToAdd)
       }
@@ -126,7 +124,7 @@ export function Dish(){
                             new Intl.NumberFormat('pt-BR', {
                               style: 'currency',
                               currency:'BRL',
-                            }).format(dish.price)
+                            }).format(dish.price * quantity)
                 }`}
                 onClick={handleAddItemToCart} 
               /> 

@@ -1,4 +1,4 @@
-import React, { useMemo, useState, createContext} from "react";
+import React, { useMemo, useState, createContext, useEffect} from "react";
 
 interface CartItem {
   id: number
@@ -11,41 +11,41 @@ interface CartItem {
 
 interface CartContextProps {
   cartItems: CartItem[]
-  addItemToCart: (item: CartItem | CartItem[]) => void
-  removeItemFromCart: (itemId: number) => void
+  addItemToCart: (item: CartItem) => void
+  removeItemFromCart: (item: CartItem) => void
   sumQuantity: number
 }
 
 
-export const CartContext = createContext<CartContextProps>({
-  cartItems: [],
-  addItemToCart: () => {},
-  removeItemFromCart: () => {},
-  sumQuantity: 0
-})
+export const CartContext = createContext({} as CartContextProps)
 
 export function CartProvider({children}: {children: React.ReactNode}){
-  const [cartItems, setCartItems] = useState<CartItem[]>([])
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCart = localStorage.getItem('@foodexplorer:cart')
+    return storedCart ? JSON.parse(storedCart) : []
+  })
 
-  const addItemToCart = (item: CartItem | CartItem[]) => {
-    if(Array.isArray(item)) {
-      setCartItems(item)
-    }else {
-      setCartItems((prevItems) => {
-        const itemExists = prevItems.find((cartItem) => cartItem.id === item.id);
-        if (itemExists) {
-          return prevItems.map((cartItem) =>
-            cartItem.id === item.id ? { ...cartItem, quantity: item.quantity } : cartItem
-          );
-        } else {
-          return [...prevItems, item];
+  const addItemToCart = (item: CartItem) => {
+    setCartItems((prevState) => {
+      const itemIndex = prevState.findIndex(
+        (cartItem) => cartItem.id === item.id
+      )
+      if (itemIndex !== -1){
+        const updatedCart = [...prevState]
+        updatedCart[itemIndex] = {
+          ...updatedCart[itemIndex],
+          quantity: item.quantity
         }
-      });
-    }
-  };
+        return updatedCart
+      }
+      return [...prevState, item]
+    })
+  }
 
-  const removeItemFromCart = (itemId: number) => {
-    setCartItems( (prevItems) => prevItems.filter(item => item.id !== itemId))
+  const removeItemFromCart = (item: CartItem) => {
+    setCartItems( (prevItems) => 
+      prevItems.filter(product => item.id !== product.id)
+    )
   }
 
   const sumQuantity = useMemo(() => { 
@@ -55,7 +55,10 @@ export function CartProvider({children}: {children: React.ReactNode}){
     )
   }, [cartItems])
 
-
+  useEffect(() => {
+    localStorage.setItem('@foodexplorer:cart', JSON.stringify(cartItems))
+  }, [cartItems])
+  
   return (
     <CartContext.Provider
       value={{
