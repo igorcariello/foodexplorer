@@ -17,7 +17,7 @@ interface User {
   id: number
   name: string
   email: string
-  isAdmin: boolean
+  role: string
 }
 
 interface AuthData {

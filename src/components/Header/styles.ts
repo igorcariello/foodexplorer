@@ -4,7 +4,7 @@ export const Container = styled.header`
   width: 100%;
   height: 7.125rem;
 
-  background-color: ${({theme}) => theme.COLORS.DARK_1000};
+  background-color: ${({ theme }) => theme.COLORS.DARK_1000};
 
   display: flex;
   align-items: center;
@@ -27,8 +27,9 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
-
-    color: ${({theme}) => theme.COLORS.LIGHT_100};
+    
+    cursor:pointer;    
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
     gap: 8px;
 
@@ -57,14 +58,14 @@ export const Container = styled.header`
       right: 0;
       z-index: 1;
       
-      background-color: ${({theme}) => theme.COLORS.TOMATO_100};
+      background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
 
       border-radius: 50%;
       width: 1.25rem;
       height: 1.25rem;
 
       p {
-        color: ${({theme}) => theme.COLORS.LIGHT_100};
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
         background: none;
 
       }

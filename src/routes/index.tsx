@@ -1,15 +1,27 @@
 import { BrowserRouter } from "react-router-dom";
 import { useAuth } from "../hooks/auth";
 
-import { AppRoutes } from "./app.routes";
+import { AdminRoutes } from "./admin.routes";
+import { ClientRoutes } from "./client.routes";
 import { AuthRoutes } from "./auth.routes";
 
 export function Routes(){
   const { user } = useAuth()
 
+  function AccessRoute(){
+    switch(user?.role){
+      case 'admin':
+        return <AdminRoutes />
+      case 'client':
+        return <ClientRoutes />
+      default: 
+        return <ClientRoutes />
+    }
+  }
+
   return (
     <BrowserRouter>
-      { user ? <AppRoutes/> :<AuthRoutes/>}
+      { user ? <AccessRoute/> :<AuthRoutes/>}
     </BrowserRouter>
   )
 }
